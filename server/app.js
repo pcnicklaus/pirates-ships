@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
 var mongoose = require('mongoose');
+var favicon = require('serve-favicon');
+
+
 
 // *** routes *** //
 var routes = require('./routes/index.js');
@@ -30,11 +33,13 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // *** config middleware *** //
+app.use(favicon(__dirname + '/public/favicons/pirates-96x96.png'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
+
 
 
 // *** main routes *** //

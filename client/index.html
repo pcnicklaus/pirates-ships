@@ -1,24 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='myApp'>
-  <head>
-    <meta charset="utf-8">
-    <title>Untitled</title>
+<head>
+  <meta charset="utf-8">
+  <title>Pirates</title>
 
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-  </head>
-  <body>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body class='wrapper'>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/">Pirates</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/">Home</a></li>
+        <li ng-class="{'active' : currentUrl === 'pages/user.html'}"><a href="#/user" >Ships</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/">Log in</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!--  Days: <a href='#/forecast/2' ng-class="{'bg-primary' : days === '2'}">2</a> | <a href='#/forecast/5' ng-class="{'bg-primary' : days === '5'}">5</a> | <a href='#/forecast/7' ng-class="{'bg-primary' : days === '7'}">7</a> -->
+
+
+
+  <header>
+    <a href='#/'><img src='./img/pirates-txt-wht.fw.png'/></a>
+    <nav>
+      <ul>
+        <li><a href="#/" class="selected">Home</a></li>
+        <li><a href="#/user">Ships</a></li>
+      </ul>
+    </nav>
+  </header>
 
 
   <div ng-view></div>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="http://code.angularjs.org/1.3.0-rc.2/angular-route.min.js"></script>
-    <script src="http://code.angularjs.org/1.3.0-rc.2/angular-resource.min.js"></script>
-    <script type="text/javascript" src="js/angular.js"></script>
-    <script type="text/javascript" src="js/router.js"></script>
-    <script type='text/javascript' src='js/services.js'></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="http://code.angularjs.org/1.3.0-rc.2/angular-route.min.js"></script>
+  <script src="http://code.angularjs.org/1.3.0-rc.2/angular-resource.min.js"></script>
+  <script type="text/javascript" src="js/angular.js"></script>
+  <script type="text/javascript" src="js/router.js"></script>
+  <script type='text/javascript' src='js/services.js'></script>
 
-  </body>
+</body>
 </html>

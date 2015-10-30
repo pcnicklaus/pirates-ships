@@ -1,25 +1,22 @@
-  <h1 style='text-align:center'>Aye, ye be warned. Ye have broken the internet!</h1>
-    <!-- sample angular code -->
-    <div class="container">
-      <div >
-        <p>{{ greeting }}</p>
-      </div>
-    </div>
+  <div><img class='warned'src='./img/pirates-ye-be-warned.fw.png'></div>
+
+
+  <!-- <h1 style='text-align:center'>Aye, ye be warned. Ye have broken the internet!</h1> -->
 
 <form class='form'>
-<h2>Add a User</h2>
+<h4>Arrrrgh! Add a Pirate</h4>
 
   <div class="form-group">
-    <label form="username">User's Name</label>
-    <input type="text" ng-model='username' class="form-control" id="username" placeholder="User Name" required>
+    <label form="username">Pirate's Name</label>
+    <input type="text" ng-model='username' class="form-control" id="username" placeholder="Pirate's Name" required>
   </div>
   <button ng-click='addUser()' type="submit" class="btn btn-default">Submit</button>
 </form>
 
 </br></br>
 
-Get Users</br>
-  <button ng-click='getUser()' type="submit" class="btn btn-default">Get them!  Get them now!</button>
+ <h4> &nbsp; Get Pirates</br></h4>
+  <button ng-click='getUser()' type="submit" class="btn btn-default">Get them now!</button>
 
 <div>
   <ul ng-repeat='user in userData'>

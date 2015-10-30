@@ -1,8 +1,101 @@
+/**********************
+HEADER
+***********************/
+
+header {
+float: left;
+  margin: 22px 0 30px 0;
+  padding: 5px 0 0 0;
+  width: 100%;
+  color: #fff;
+}
+
+header li {
+  text-align: right;
+}
+
+header img{
+  width: 260px;
+}
+
+#logo {
+text-align:center;
+  margin: 0;
+ }
+
+h1 {
+font-family: 'Changa one', sans-serif;
+  margin: 15px 0;
+  font-size: 1.75em;
+  font-weight: normal;
+  line-height: 0.8em;
+}
+
+h2 {
+font-size: 0.75em;
+  margin: -5px 0 0;
+  font-weight: normal;
+}
+
+/**********************
+NAVIGATION
+***********************/
+
+nav {
+text-align: center;
+  padding: 10px 0;
+  margin: 20px 0 0;
+  float:right;
+  padding-right: 4%;
+}
+
+nav ul {
+list-style: none;
+  margin: 0 10px;
+  padding: 0;
+}
+
+nav li {
+display: inline-block;
+}
+
+nav a {
+font-weight: 800;
+padding: 15px 10px;
+color: #fff;
+font-size: 1.2em;
+}
+
+/**********************
+BODY
+***********************/
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #160D0D;
+  background-color: #b0c4de;
+  background: url("../img/black-stone-background.fw.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-a {
-  color: #00B7FF;
+.warned{
+  clear:both;
+  width: 100%;
+  height: autopx;
+  background-image: url('../img/pirates-ye-be-warned.fw.png');
+  background-repeat: no-repeat;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.wrapper {
+  padding: 2% 5% 2% 5%;
+}
+
+h1, h2, h3, h4, h5, h6, ul, li, label {
+  color: #fff;
 }
