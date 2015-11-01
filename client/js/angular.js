@@ -10,9 +10,13 @@ app.controller('shipsController',['$scope', '$http', '$location', '$routeParams'
     var payload = {
       'name': $scope.username
     };
+
     $http.post('/users', payload).then(function(response){
       console.log(response);
+      $scope.username = '';
     });
+    $scope.getUser();
+
   };
 
 $scope.addShip = function(){
@@ -42,6 +46,8 @@ $scope.addShip = function(){
       'name': $scope.name,
       'missions': $scope.missions
     };
+    $scope.name = '';
+    $scope.missions = '';
     $http.put('/users/' + id + '/ships', payload).then(function(response){
       console.log('success');
     });

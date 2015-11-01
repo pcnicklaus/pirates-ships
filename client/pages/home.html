@@ -19,12 +19,33 @@
   <button ng-click='getUser()' type="submit" class="btn btn-default">Get them now!</button>
 
 <div>
-  <ul ng-repeat='user in userData'>
-    <a href='#/user' ng-click='getSingleUserId(user)'><li>{{user.name}}</li></a>
-    <ul ng-repeat='ship in user.ships'>
-    <li>Ship Name: {{ship.name}}</li>
-      <ul>
-      <li>Missions: {{ship.missions}}</li>
-    </ul>
-  </ul>
+<div class="col-xs-8 col-xs-offset-2">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Pirate Name</td>
+        <td>Pirate Ships</td>
+        <td>Ships Missions</td>
+      </tr>
+    </thead>
+    <tbody ng-repeat="user in userData; ship in user.ships">
+      <tr >
+        <td><!-- <a href="#/user"  -->{{ user.name }}<!-- </a> --></td>
+        <td> {{ship.name}} </td>
+        <td> {{ship.missions}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+   <!--  <ul ng-repeat='user in userData'>
+      <a href='#/user' ng-click='getSingleUserId(user)'><li>{{user.name}}</li></a>
+      <ul ng-repeat='ship in user.ships'>
+      <li>Ship Name: {{ship.name}}</li>
+        <ul>
+        <li>Missions: {{ship.missions}}</li>
+      </ul>
+    </ul> -->
+  </div>
 </div>
