@@ -1,15 +1,28 @@
 <form>
-<h2>Add a ship</h2>
-  <div class="form-group">
-    <label for="addAShip">Ship Name</label>
-    <input type="text" ng-model='name' class="form-control" id="addAShip" placeholder="Ship Name">
-  </div>
-  <div class="form-group">
-    <label for="">Missions</label>
-    <input type="text" ng-model='missions' class="form-control" id="addAShip" placeholder="Number of Missions">
-  </div>
+    <h2>Edit User</h2>
+    <div class="form-group">
+        <label for="editUser">Edit userame</label>
+        <input type="text" ng-model='editUsername' class="form-control" id="editUser" placeholder={{editUsername}}>
+    </div>
+    <button type="submit" ng-click='editUser(user)' class="btn btn-default">Submit</button>
+</form>
 
-  <button type="submit" ng-click='addShip()' class="btn btn-default">Submit</button>
+<br>
+<hr>
+<br>
+
+<form>
+    <h2>Add a ship</h2>
+    <div class="form-group">
+        <label for="addAShip">Ship Name</label>
+        <input type="text" ng-model='name' class="form-control" id="addAShip" placeholder="Ship Name">
+    </div>
+    <div class="form-group">
+        <label for="">Missions</label>
+        <input type="text" ng-model='missions' class="form-control" id="addAShip" placeholder="Number of Missions">
+    </div>
+
+    <button type="submit" ng-click='addShip()' class="btn btn-default">Submit</button>
 </form>
 
 <a href='#/'>Back To Home</a>

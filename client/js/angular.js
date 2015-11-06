@@ -4,7 +4,7 @@ app.controller('shipsController', ['$scope', '$http', '$location', '$routeParams
 
 
     $scope.currentUrl = $route.current.templateUrl;
-    console.log($scope.currentUrl);
+    //    console.log($scope.currentUrl);
 
     $scope.addUser = function () {
         var payload = {
@@ -19,9 +19,11 @@ app.controller('shipsController', ['$scope', '$http', '$location', '$routeParams
 
     };
 
-    $scope.addShip = function () {
-        console.log(getIdService.id);
-    };
+    $scope.getSingleUserId = function (data) {
+        getIdService.id = data._id;
+        getIdService.editUsername = data.name;
+    }
+
 
     $scope.getUser = function () {
         // console.log('Tina the cat');
@@ -32,11 +34,19 @@ app.controller('shipsController', ['$scope', '$http', '$location', '$routeParams
             .error(function (err) {});
     };
 
-    //Get Single UserId
-    $scope.getSingleUserId = function (data) {
-        getIdService.id = data._id;
-        console.log(getIdService.id);
+    //Get Single ShipId
+    $scope.getShipId = function (data) {
+
+        getIdService.currentShipId = data._id;
+        getIdService.placeHolderName = data.name;
+        getIdService.placeHolderMissions = data.missions;
+        //        console.log(getIdService.currentShipId);
     };
+
+    $scope.shipName = getIdService.placeHolderName;
+    $scope.shipMissions = getIdService.placeHolderMissions;
+    $scope.editUsername = getIdService.editUsername;
+
 
     //add ship to user
     $scope.addShip = function () {
@@ -64,19 +74,25 @@ app.controller('shipsController', ['$scope', '$http', '$location', '$routeParams
 
     $scope.editShip = function () {
         var ship = getIdService.currentShipId;
+        console.log(ship);
         var payload = {
-            'name': $scope.editName,
-            'missions': $scope.editMissions
+            'name': $scope.shipName,
+            'missions': $scope.shipMissions
         };
         console.log(ship._id);
-        $http.put('/ships/' + ship._id, payload)
+        $http.put('/ships/' + ship, payload)
             .then(function (response) {});
     }
 
-    $scope.getShipId = function (data) {
-        getIdService.currentShipId = data;
-        console.log(getIdService.currentShipId);
+    $scope.editUser = function () {
+        var user = getIdService.id;
+        console.log(user);
+        var payload = {
+            'name': $scope.editUsername
+        };
+        $http.put('/users/' + user, payload)
+            .then(function (response) {});
     }
 
 
-}]); //myController
+}]);
