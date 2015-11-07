@@ -19,57 +19,50 @@
 <h4> &nbsp; Get Pirates</br></h4>
 <button ng-click='getUser()' type="submit" class="btn btn-default">Get them now!</button>
 
-<div>
-    <div class="col-xs-8 col-xs-offset-2">
-        <!--
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <td>Pirate Name</td>
-            <td>Pirate Ships</td>
-            <td>Ships Missions</td>
-        </tr>
-    </thead>
-    <tbody ng-repeat="user in userData">
-        <div ng-repeat="ship in user.ships">
-            <tr>
-                <td>
-                    <a href="#/user"> {{ user.name }} </a>
-                </td>
-                <td> {{ship.name}} </td>
-                <td> {{ship.missions}}</td>
 
-            </tr>
-        </div>
-    </tbody>
-</table>
 -->
-        <div>
-            <ul ng-repeat='user in userData'>
-                <a href='#/user' ng-click='getSingleUserId(user)'>
-                    <li>{{user.name}}</li>
+<div>
+    <ul ng-repeat='user in userData'>
+        <a href='#/user' ng-click='getSingleUserId(user)'>
+            <li>{{user.name}}</li>
+        </a>
+        <ul ng-repeat='ship in user.ships'>
+            <li>Ship Name: {{ship.name}}
+                <a href='#/editship'>
+                    <button type="submit" class="btn btn-primary btn-md" ng-click="getShipId(ship)">Update</button>
                 </a>
-                <ul ng-repeat='ship in user.ships'>
-                    <li>Ship Name: {{ship.name}}
-                        <a href='#/editship'>
-                            <button type="submit" class="btn btn-primary btn-md" ng-click="getShipId(ship)">Update</button>
-                        </a>
-                        <button type="submit" class="btn btn-danger btn-md" ng-click="deleteShip(ship._id)">Delete Ship</button>
-                    </li>
+                <button type="submit" class="btn btn-danger btn-md" ng-click="deleteShip(ship._id)">Delete Ship</button>
+            </li>
 
-                    <ul>
-                        <li>Missions: {{ship.missions}}</li>
-                    </ul>
-                </ul>
-        </div>
-
-        <!--  <ul ng-repeat='user in userData'>
-      <a href='#/user' ng-click='getSingleUserId(user)'><li>{{user.name}}</li></a>
-      <ul ng-repeat='ship in user.ships'>
-      <li>Ship Name: {{ship.name}}</li>
-        <ul>
-        <li>Missions: {{ship.missions}}</li>
-      </ul>
-    </ul> -->
-    </div>
+            <ul>
+                <li>Missions: {{ship.missions}}</li>
+            </ul>
+        </ul>
 </div>
+
+<div>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+
+    <h1>Wanna sound like a pirate?</h1>
+
+    <br>
+
+    <form>
+        <div class="form-group" id="inputText">
+            <input type="text" class="form-control" placeholder="Enter text for pirate-ification" ng-model="pirateSpeak">
+        </div>
+        <div class="form-group">
+            <input type="submit" id="search-submit" class="btn btn-default" value="argh me..." ng-click="getTranslation()">
+        </div>
+    </form>
+
+    <p>Avast, me matey! Here be your answer <strong><span class="query"></span></strong></p>
+
+    <hr>
+
+    <div class="results-area" id="pirateTranslation">
+        <h3>{{pirateData}}<h3>

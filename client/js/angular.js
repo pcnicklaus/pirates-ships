@@ -1,6 +1,6 @@
 var app = angular.module('myApp', ['ngRoute', 'ngResource']);
 
-app.controller('shipsController', ['$scope', '$http', '$location', '$routeParams', 'getIdService', '$route', function ($scope, $http, $location, $routeParams, getIdService, $route) {
+app.controller('shipsController', ['$scope', '$http', '$location', '$routeParams', 'getIdService', '$route', 'pirateTranslateService', function ($scope, $http, $location, $routeParams, getIdService, $route, pirateTranslateService) {
 
 
     $scope.currentUrl = $route.current.templateUrl;
@@ -93,6 +93,23 @@ app.controller('shipsController', ['$scope', '$http', '$location', '$routeParams
         $http.put('/users/' + user, payload)
             .then(function (response) {});
     }
+
+    $scope.getTranslation = function () {
+        var payload = $scope.pirateSpeak;
+        pirateTranslateService.translateRequest(payload)
+        console.log('here');
+    }
+
+    //    $scope.getTranslation = function () {
+    //        var payload = $scope.pirateSpeak;
+    //        $http.post('/users/translate' + payload)
+    //            .then(function (response) {
+    //                console.log(response)
+    //            })
+    //            .error(function (error) {
+    //                console.log(error);
+    //            })
+    //    }
 
 
 }]);
